@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TRAVEX - Calendario</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="index.html">TRAVEX</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="tours.html">Tours</a></li>
+        <li class="nav-item"><a class="nav-link" href="hoteles.html">Hoteles</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">Calendario</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Contenido -->
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Calendario de Actividades</h2>
+
+  <!-- Formulario para agendar evento -->
+  <div class="card mb-5">
+    <div class="card-header bg-light">
+      <strong>Agendar nuevo evento</strong>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="tituloEvento" class="form-label">Título del Evento</label>
+            <input type="text" class="form-control" id="tituloEvento" required />
+          </div>
+          <div class="col-md-3">
+            <label for="fechaEvento" class="form-label">Fecha</label>
+            <input type="date" class="form-control" id="fechaEvento" required />
+          </div>
+          <div class="col-md-3">
+            <label for="horaEvento" class="form-label">Hora</label>
+            <input type="time" class="form-control" id="horaEvento" required />
+          </div>
+          <div class="col-12">
+            <label for="descripcionEvento" class="form-label">Descripción</label>
+            <textarea class="form-control" id="descripcionEvento" rows="3" required></textarea>
+          </div>
+        </div>
+        <div class="mt-3 text-end">
+          <button type="submit" class="btn btn-primary">Guardar Evento</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lista de eventos programados -->
+  <div class="card">
+    <div class="card-header bg-light">
+      <strong>Eventos Programados</strong>
+    </div>
+    <ul class="list-group list-group-flush" id="listaEventos">
+      <!-- Eventos se cargarán dinámicamente -->
+    </ul>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-primary text-white text-center py-3 mt-5">
+  <p class="mb-0">© 2025 TRAVEX - Todos los derechos reservados</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

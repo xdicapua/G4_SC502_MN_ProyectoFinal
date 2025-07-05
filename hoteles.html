@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TRAVEX - Hoteles</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="index.html">TRAVEX</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="categorias.html">Categorías</a></li>
+        <li class="nav-item"><a class="nav-link" href="tours.html">Tours</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">Hoteles</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Contenido -->
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Gestión de Hoteles</h2>
+    <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalHotel">Agregar Hotel</button>
+  </div>
+
+  <!-- Filtros -->
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="filtroCategoria" class="form-label">Filtrar por Categoría</label>
+      <select id="filtroCategoria" class="form-select">
+        <option selected>Todas</option>
+        <!-- Llenar dinámicamente -->
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="filtroEstado" class="form-label">Filtrar por Estado</label>
+      <select id="filtroEstado" class="form-select">
+        <option selected>Todos</option>
+        <option value="activo">Activo</option>
+        <option value="inactivo">Inactivo</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Tabla de hoteles -->
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Ubicación</th>
+          <th>Precio</th>
+          <th>Disponibilidad</th>
+          <th class="text-end">Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-hoteles">
+        <!-- Carga dinámica desde JS o PHP -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal para Agregar/Editar Hotel -->
+<div class="modal fade" id="modalHotel" tabindex="-1" aria-labelledby="modalHotelLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <form class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalHotelLabel">Registrar Nuevo Hotel</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body row">
+        <div class="col-md-6 mb-3">
+          <label for="nombreHotel" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombreHotel" required />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="categoriaHotel" class="form-label">Categoría</label>
+          <select class="form-select" id="categoriaHotel" required>
+            <option value="">Seleccione</option>
+            <!-- Cargar dinámicamente -->
+          </select>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="ubicacionHotel" class="form-label">Ubicación</label>
+          <input type="text" class="form-control" id="ubicacionHotel" required />
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="precioHotel" class="form-label">Precio por noche</label>
+          <input type="number" class="form-control" id="precioHotel" required />
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="disponibilidadHotel" class="form-label">Disponibilidad</label>
+          <input type="number" class="form-control" id="disponibilidadHotel" required />
+        </div>
+        <div class="col-md-12 mb-3">
+          <label for="imagenesHotel" class="form-label">Imágenes</label>
+          <input type="file" class="form-control" id="imagenesHotel" multiple />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-primary text-white text-center py-3 mt-5">
+  <p class="mb-0">© 2025 TRAVEX - Todos los derechos reservados</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
