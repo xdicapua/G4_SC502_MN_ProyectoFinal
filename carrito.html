@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAVEX</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Botón Ver Carrito -->
+    <div class="m-3">
+        <form action="/carrito/listado">
+            <button type="submit" class="btn bg-info-subtle">
+                <i class="fas fa-cart-plus"></i> (3) ¢15000
+            </button>
+        </form>
+    </div>
+
+    <!-- Listado del Carrito -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <!-- Tabla de items -->
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Carrito de Compras</h4>
+                        </div>
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Descripción</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Total</th>
+                                    <th>Imagen</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Tour de ejemplo</td>
+                                    <td>¢5000</td>
+                                    <td>2</td>
+                                    <td>¢10000</td>
+                                    <td><img src="ruta/imagen.jpg" alt="imagen" height="75"/></td>
+                                    <td>
+                                        <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</a>
+                                        <a href="#" class="btn btn-success"><i class="fas fa-pencil"></i> Actualizar</a>
+                                    </td>
+                                </tr>
+                                <!-- Puedes duplicar para más filas -->
+                            </tbody>
+                        </table>
+                        <div class="text-center p-2">
+                            <span>No hay productos en el carrito</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen lateral -->
+                <div class="col-md-3">
+                    <div class="card text-center bg-info text-white mb-3">
+                        <div class="card-body">
+                            <h3>Total de Compra</h3>
+                            <h4 class="fs-4">¢15000</h4>
+                        </div>
+                    </div>
+
+                    <div class="card text-center bg-info-subtle text-white mb-3">
+                        <div class="card-body">
+                            <a href="/" class="btn btn-info-subtle">
+                                <i class="fas fa-reply"></i> Seguir Comprando
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card text-center bg-info text-white mb-3">
+                        <div class="card-body">
+                            <a href="/facturar/carrito" class="btn btn-info">
+                                <i class="fa-solid fa-calendar-check"></i> Facturar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>           
+    </section>
+
+    <!-- Editar Item del Carrito -->
+    <section class="p-4">
+        <div class="row row-cols-6 mb-3">
+            <a href="/carrito/listado" class="btn btn-primary">
+                <i class="fas fa-reply"></i> Regresar
+            </a>
+        </div>
+        <div class="row row-cols-2 g-4">
+
+        </div>             
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

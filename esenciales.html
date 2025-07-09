@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>TRAVEX</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+
+        <header th:replace="~{layout/plantilla :: header}"/>
+        
+        <!-- Botón calculadora -->
+        <button onclick="toggleCalculator()" style="background-color: #40e0d0; color: white; padding: 12px 24px; border: none; border-radius: 10px; font-size: 1.1rem; cursor: pointer; transition: background-color 0.3s; margin-top: 5px;">
+    Calcula según tu presupuesto
+</button>
+
+        
+        <div id="calculator" style="display: none; margin-top: 2rem; padding: 1.5rem; background-color: #f0f9ff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-family: 'Arial', sans-serif;">
+            <input id="calc-display" type="text" style="width: 100%; font-size: 1.4rem; padding: 10px; margin-bottom: 10px; text-align: right; border-radius: 10px; border: 1px solid #ddd; background-color: #fff; color: #333; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);">
+
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                    <button onclick="addToDisplay('7')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">7</button>
+                    <button onclick="addToDisplay('8')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">8</button>
+                    <button onclick="addToDisplay('9')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">9</button>
+                    <button onclick="addToDisplay('+')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">+</button>
+
+                    <button onclick="addToDisplay('4')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">4</button>
+                    <button onclick="addToDisplay('5')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">5</button>
+                    <button onclick="addToDisplay('6')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">6</button>
+                    <button onclick="addToDisplay('-')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">-</button>
+
+                    <button onclick="addToDisplay('1')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">1</button>
+                    <button onclick="addToDisplay('2')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">2</button>
+                    <button onclick="addToDisplay('3')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">3</button>
+                    <button onclick="addToDisplay('')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;"></button>
+
+                    <button onclick="addToDisplay('0')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">0</button>
+                    <button onclick="clearDisplay()" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #ff4d4d; color: white; border: none;">C</button>
+                    <button onclick="calculateResult()" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">=</button>
+                    <button onclick="addToDisplay('/')" style="padding: 16px; font-size: 1.1rem; border-radius: 10px; background-color: #40e0d0; color: white; border: none;">/</button>
+                </div>
+        </div>
+
+        <!-- script de la calculadora -->
+        <script>
+            function addToDisplay(value) {
+                document.getElementById('calc-display').value += value;
+            }
+
+            function clearDisplay() {
+                document.getElementById('calc-display').value = '';
+            }
+
+            function calculateResult() {
+                try {
+                    const result = eval(document.getElementById('calc-display').value);
+                    document.getElementById('calc-display').value = result;
+                } catch (e) {
+                    document.getElementById('calc-display').value = 'Error';
+                }
+            }
+
+            function toggleCalculator() {
+                const calc = document.getElementById('calculator');
+                if (calc.style.display === 'none' || calc.style.display === '') {
+                    calc.style.display = 'block';
+                } else {
+                    calc.style.display = 'none';
+                }
+            }
+        </script>
+        <div class="container">
+        <div class="row row-cols-1 row-cols-md-5 g-3 mt-2">
+
+            <!-- Producto 1 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://media.nidux.net/pull/600/800/10422/261-product-676ef4528902f-adaptador-tipoc.jpg" style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="...">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Adaptador Universal + USB C</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">Travex</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡18,500</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://media.nidux.net/pull/600/800/10422/259-product-6780a3d8e8a13-bolso-azul.jpg" style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="...">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Bolso de Viaje PT-1608N</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">P.Travel</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡35,000</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://media.nidux.net/pull/600/800/10422/241-product-669f0f80b423e-bolsas-de-compresio%CC%81n-y-bombas-modo-viajero-copy-01.jpg" style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="...">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Bolsas de Compresión</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">Travex</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡10,000</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://media.nidux.net/pull/600/800/10422/246-product-66c9092cd8ec2-2-en-1-mochila-de-viaje-modo-viajero-copy-04.jpg" style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="...">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Mochila Viaje 2en1 CR</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">Travex</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡42,000</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://minisocl.vtexassets.com/arquivos/ids/212453-800-800?v=637807089688800000&width=800&height=800&aspect=true" style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="...">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Botella Plegable Silicona</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">HydroFlex</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡7,500</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://walmartcr.vtexassets.com/arquivos/ids/255936/Cojin-Para-El-Cuello-Ref-18529-1-48433.jpg?v=637721779400800000" style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="...">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Almohada Cuello Memory</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">SleepGo</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡10,500</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 7 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://walmartcr.vtexassets.com/arquivos/ids/449167/Bolso-Organizador-Equate-Para-Cables-3-86841.jpg?v=638308642927370000" style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="...">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Organizador Cables Viaje</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">TechPack</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡4,500</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 8 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://perfectchoice.me/cdn/shop/files/PC-084792_C02_1000x.jpg?v=1720637007" style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="...">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Maleta Ruedas 360°</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">TravelPro</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡58,500</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 9 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://m.media-amazon.com/images/I/712T0OEqRBL.SL1500.jpg" style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="...">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Set Botellas Viaje TSA</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">JetKit</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡3,900</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 10 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://lafiebredeviajar.com/cdn/shop/products/universal-adaptador-de-corriente-la-fiebre-de-viajar-186026.jpg?v=1687719779&width=1080" style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="...">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Adaptador Corriente Univ.</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">GlobePower</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡10,200</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 11 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://www.steren.cr/media/catalog/product/cache/b69086f136192bea7a4d681a8eaf533d/image/21900e8b5/bascula-digital-para-equipaje-hasta-40-kg.jpg" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Báscula Equipaje Digital">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Báscula Equipaje Digital</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">WeightWise</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡8,700</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 12 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://www.ifam.es/wp-content/uploads/2015/06/Tryplock35-logokin-538x488.jpg" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Candado TSA Combinación">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Candado TSA Combinación</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">SafeTrip</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡4,300</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 13 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://m.media-amazon.com/images/I/61apnxpKTYL.AC_SL1500.jpg" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Mochila Antirrobo USB">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Mochila Antirrobo USB</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">SecureBag</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡22,900</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 14 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://lafiebredeviajar.com/cdn/shop/products/porta-pasaporte-portapasaportes-la-fiebre-de-viajar-283646_1800x1800.jpg?v=1722056201" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Portapasaporte Documentos">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Portapasaporte Documentos</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">TripMate</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡6,750</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 15 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://img.pacifiko.com/PROD/resize/1/500x500/MmNkZWVmNG.jpg" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Toalla Microfibra">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Toalla Microfibra</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">QuickDry</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡6,500 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 16 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://m.media-amazon.com/images/I/71NnFniMlZL.AC_UY1000.jpg" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Cinturón Dinero Oculto">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Cinturón Dinero Oculto</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">SafeTravel</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡5,800 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 17 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://m.media-amazon.com/images/I/711UthNVCaL.jpg" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Caja Impermeable Pasaporte">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Caja Impermeable Pasaporte</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">DrySafe</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡7,200 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 18 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://teloconsigo.com.uy/cdn/shop/products/D_729668-MLU70518573964_072023-O_1024x.jpg?v=1697047114" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Rastreador GPS Llaves/Equipaje">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Rastreador GPS Llaves/Equipaje</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">TrackMe</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡13,500 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 19 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://www.huillcaexpedition.com/images/blog/kit-de-aseo-personal-para-viajar-1686076308.jpg" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Kit Higiene Personal Viaje">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Kit Higiene Personal Viaje</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">CleanGo</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡5,200 CRC</h4>
+                    </div>
+            </div>
+
+
+            <!-- Producto 20 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://kpnenergy.com/wp-content/uploads/2022/05/Cargador-solar.jpg" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Cargador Solar Portátil">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Cargador Solar Portátil</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">SunCharge</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡18,900 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 21 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://m.media-amazon.com/images/I/61lKUDYj0vL.AC_SL1500.jpg" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Mini Secadora Ropa">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Mini Secadora Ropa</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">QuickDryer</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡24,500 CRC</h4>
+                    </div>
+            </div>
+
+
+
+            <!-- Producto 23 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://carbonestore.cr/cdn/shop/products/19_BAS014.jpg?v=1681411606" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Pesa Maletas LED">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Pesa Maletas LED</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">LuggageWeightPro</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡9,700 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 24 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://cyxus.com.mx/cdn/shop/products/1019B02-01-7-20210903.jpg?v=1632901458" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Gafas Sol Plegables">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Gafas Sol Plegables</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">FoldSun</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡11,000 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 25 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT479WGHFhT5e10e9azRFRphZ72fjDAjp0uLQ&s" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Set Cuidado Facial">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Set Cuidado Facial</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">BeautyJet</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡8,900 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 26 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://i2go.cr/cdn/shop/files/7898647785281_1-gigapixel-very_compressed-width-1000px.jpg?v=1724083310" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Funda Impermeable Teléfono">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Funda Impermeable Teléfono</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">AquaSafe</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡4,900 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 27 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVpPcAnJsfIIbqJ91VKnSNIt3Vs3Q32VQmJQ&s" 
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Taza Plegable Silicona">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Taza Plegable Silicona</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">CupFlex</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡4,200 CRC</h4>
+                    </div>
+            </div>
+
+
+            <!-- Producto 28 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://m.media-amazon.com/images/I/71W4OeuUYpL.jpg"
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Soporte Celular Avión">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Soporte Celular Avión</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">FlyClip</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡3,900 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 29 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://m.media-amazon.com/images/I/71MOd8WLX2L.AC_UF894,1000_QL80.jpg"
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Cubiertos Reutilizables">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Cubiertos Reutilizables</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">EcoTravel</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡5,700 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 30 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://m.media-amazon.com/images/I/51DCAhruBaL.AC.jpg"
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Kit Costura Emergencia">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Kit Costura Emergencia</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">SewMate</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡3,200 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 31 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://m.media-amazon.com/images/I/61UYqeuMDxL.AC_UF1000,1000_QL80.jpg"
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Soporte Cuello Inflable">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Soporte Cuello Inflable</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">AirComfort</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡8,800 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 32 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://m.media-amazon.com/images/I/71ZV3H6feHL.AC_SL1500.jpg"
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Organizador Maleta">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Organizador Maleta</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">PackTidy</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡10,400 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 33 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://m.media-amazon.com/images/I/71nteBDJWdL.AC_SL1500.jpg"
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Luz Nocturna USB">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Luz Nocturna USB</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">GlowTrip</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡3,900 CRC</h4>
+                    </div>
+            </div>
+
+            <!-- Producto 34 -->
+            <div class="card" style="min-width: 250px; max-width: 270px; margin: 1rem; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; text-align: center; background-color: #fff;">
+                <img src="https://m.media-amazon.com/images/I/61hvvWP7TbL.AC_SL1500.jpg"
+                     style="height: 200px; object-fit: cover; width: 100%; border-bottom: 1px solid #eee;" alt="Mini Humidificador USB">
+                    <div style="padding: 1rem;">
+                        <h2 style="font-size: 1.1rem; font-weight: 600; margin: 0.3rem 0;"><b>Mini Humidificador USB</b></h2>
+                        <h3 style="font-size: 1rem; color: #555; margin: 0.3rem 0;">MistAway</h3>
+                        <h4 style="font-size: 0.95rem; color: #2e8b57; margin: 0.3rem 0;">APROX ₡11,900 CRC</h4>
+                    </div>
+            </div>
+        </div>
+            </div>
+
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
+</html>
