@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>TRAVEX</title>
+  <link rel="icon" type="image/png" sizes="256x256" href="fav/travex.png">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body style="font-family: 'Poppins', sans-serif;">
+
+  <!-- HEADER / NAVBAR -->
+  <header>
+    <nav class="navbar navbar-expand-sm bg-primary-subtle p-0">
+      <div class="container">
+        <a href="Principal.html" class="navbar-brand">TRAVEX</a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+          <ul class="navbar-nav">
+            <li class="nav-item px-2"><a class="nav-link" href="Principal.html">Principal</a></li>
+            <li class="nav-item px-2"><a class="nav-link" href="Categorias.html">Categorías</a></li>
+            <li class="nav-item px-2"><a class="nav-link" href="Tours.html">Tours</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menú</a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="Reservas.html">Reservaciones</a></li>
+                <li><a class="dropdown-item" href="Esenciales.html">Esenciales</a></li>
+                <li><a class="dropdown-item" href="Resenas.html">Reseñas</a></li>
+                <li><a class="dropdown-item" href="Reuniones.html">Reuniones</a></li>
+                <li><a class="dropdown-item" href="Calendario.html">Calendario</a></li>
+                <li><a class="dropdown-item" href="Membresias.html">Membresías</a></li>
+                <li><a class="dropdown-item" href="Usuarios.html">Usuarios</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Idioma</a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="#">Español</a></li>
+                <li><a class="dropdown-item" href="#">English</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item px-2"><a class="nav-link" href="Login.html"><i class="fas fa-sign-in-alt"></i></a></li>
+            <li class="nav-item d-flex align-items-center text-white">
+              <img src="img/default-user.png" alt="Usuario" height="40" class="rounded-circle me-2">
+              <span>Nombre</span>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-dark ms-2"><i class="fas fa-sign-out-alt"></i></button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container my-4">
+    <h1>Bienvenido a TRAVEX</h1>
+    <p>Este es el contenido de la plantilla base. Sustitúyelo en cada página.</p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="p-2 bg-info text-white text-center">
+    <small>&copy; 2025 TRAVEX. Todos los derechos reservados.</small>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
