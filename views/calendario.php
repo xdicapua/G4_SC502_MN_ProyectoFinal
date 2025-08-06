@@ -9,7 +9,7 @@
 
 <body>
 
-  <header th:replace="~{layout/plantilla :: header}" />
+  <?php include 'partials/header.php'; ?>
 
   <div class="container mt-4">
     <div class="text-center fw-bold mb-4">
@@ -918,6 +918,7 @@
     }
   </script>
 
+<?php include 'partials/footer.php'; ?>
 </body>
 
 </html>

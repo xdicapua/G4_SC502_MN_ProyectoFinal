@@ -9,29 +9,10 @@
 </head>
 <body style="background-color: #f8f9fa;">
 
-<!-- ✅ NAVBAR con estilo correcto -->
-<nav class="navbar navbar-expand-lg bg-primary text-white shadow-sm">
-    <div class="container-fluid">
-        <a class="navbar-brand fw-bold text-white" href="index.html">TRAVEX</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link text-white" href="index.html">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="categorias.html">Categorías</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="tours.html">Tours</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="hoteles.html">Hoteles</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<?php include 'partials/header.php'; ?>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
         
         <!-- Botón calculadora -->
         <button onclick="toggleCalculator()" style="background-color: #40e0d0; color: white; padding: 12px 24px; border: none; border-radius: 10px; font-size: 1.1rem; cursor: pointer; transition: background-color 0.3s; margin-top: 5px;">
@@ -455,6 +436,6 @@
         </div>
             </div>
 
-        <footer th:replace="~{layout/plantilla :: footer}"/>
+        <?php include 'partials/footer.php'; ?>
     </body>
 </html>

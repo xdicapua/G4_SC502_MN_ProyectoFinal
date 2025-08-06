@@ -1,3 +1,4 @@
+
 <?php
 require_once '../config/Database.php';
 require_once '../models/Categoria.php';
@@ -12,6 +13,8 @@ $hoteles = $categoriaModel->obtenerPorTipo('hotel');
 
 <?php include 'partials/header.php'; ?>
 
+<body class="d-flex flex-column min-vh-100">
+<main class="flex-grow-1">
 <div class="container mt-5">
     <h2>Categorías de Tours</h2>
     <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalAgregarTour">Agregar Categoría</button>
@@ -197,5 +200,7 @@ $hoteles = $categoriaModel->obtenerPorTipo('hotel');
         </form>
     </div>
 </div>
+</main>
+</body>
 
 <?php include 'partials/footer.php'; ?>

@@ -1,33 +1,13 @@
 <?php
-// Puedes usar include para encabezado y pie
 include '../views/partials/header.php';
 ?>
 
+<body class="d-flex flex-column min-vh-100">
+<main class="flex-grow-1">
 <div class="container mt-5 text-center">
-
-    <!-- Botones arriba -->
-    <div class="mb-4">
-        <a href="../views/login.php" class="btn btn-primary rounded-pill px-4 me-2 mb-2">Iniciar Sesión</a>
-        <a href="../views/registro.php" class="btn btn-outline-secondary rounded-pill px-4 me-2 mb-2">Registrarse</a>
-    </div>
-
-    <!-- Título principal -->
     <h1>🌍 Bienvenido a TRAVEX</h1>
     <p>Tu plataforma de turismo, productos y reservas.</p>
 
-    <!-- Otros botones debajo del título -->
-    <div class="mb-4">
-        <a href="../views/calendario.php" class="btn btn-outline-primary me-2 mb-2">Calendario</a>
-        <a href="/travex/views/membresia.php" class="btn btn-outline-primary me-2 mb-2">Membresía</a>
-        <a href="/travex/views/reseñas.php" class="btn btn-outline-primary me-2 mb-2">Reseñas</a>
-        <a href="/travex/views/usuarios.php" class="btn btn-outline-primary me-2 mb-2">Usuarios</a>
-        <a href="/travex/views/reuniones.php" class="btn btn-outline-primary me-2 mb-2">Reuniones</a>
-        <a href="../views/categoria.php" class="btn btn-outline-primary me-2 mb-2">Categorías</a>
-        <a href="../views/pagos.php" class="btn btn-outline-primary me-2 mb-2">Pagos</a>
-        <a href="/travex/views/esenciales.php" class="btn btn-outline-primary me-2 mb-2">Esenciales al Viajar</a>
-    </div>
-
-    <!-- Sección de tours y hoteles -->
     <section class="features container py-5">
         <div class="row justify-content-center">
             <div class="col-12 mb-4">
@@ -52,5 +32,7 @@ include '../views/partials/header.php';
         </div>
     </section>
 </div>
+</main>
+</body>
 
 <?php include '../views/partials/footer.php'; ?>

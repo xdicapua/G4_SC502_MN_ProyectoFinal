@@ -7,28 +7,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="index.html">TRAVEX</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="tours.html">Tours</a></li>
-        <li class="nav-item"><a class="nav-link" href="hoteles.html">Hoteles</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#">Pagos</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<?php include 'partials/header.php'; ?>
 
-<!-- Contenido -->
-<div class="container mt-5 mb-5">
+<main class="container mt-5 mb-0 flex-grow-1">
   <h2 class="mb-4 text-center">Formulario de Pago</h2>
 
   <div class="row justify-content-center">
@@ -71,18 +54,13 @@
       </div>
     </div>
   </div>
-</div>
-
-<!-- Footer -->
-<footer class="bg-primary text-white text-center py-3 mt-5">
-  <p class="mb-0">© 2025 TRAVEX - Todos los derechos reservados</p>
-</footer>
+</main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   // Simulación del total desde el backend
   document.addEventListener("DOMContentLoaded", () => {
-    const total = localStorage.getItem("totalCarrito") || "125.00"; // Ejemplo
+    const total = localStorage.getItem("totalCarrito") || "125.00";
     document.getElementById("total-pago").textContent = `$${total}`;
   });
 
@@ -93,6 +71,6 @@
     window.location.href = "index.html";
   });
 </script>
-
+<?php include 'partials/footer.php'; ?>
 </body>
 </html>

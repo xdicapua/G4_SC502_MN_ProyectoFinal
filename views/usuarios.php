@@ -15,16 +15,15 @@ $usuarios = $usuarioModel->obtenerTodos();
     <title>Gestión de Usuarios</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
 </head>
-<body class="p-4">
+<body class="d-flex flex-column min-vh-100">
 
     <h2>Usuarios</h2>
 
-    <!-- Botón para abrir modal agregar -->
     <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalAgregarUsuario">
         Agregar Usuario
     </button>
 
-    <!-- Modal agregar usuario -->
+    <main class="flex-grow-1">
     <div class="modal fade" id="modalAgregarUsuario" tabindex="-1" aria-labelledby="modalAgregarUsuarioLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -55,7 +54,7 @@ $usuarios = $usuarioModel->obtenerTodos();
                   <input name="telefono" placeholder="Teléfono" class="form-control" />
                 </div>
 
-                <!-- campo ruta_imagen oculto -->
+                
                 <input type="hidden" name="ruta_imagen" value="" />
 
                 <div class="col-12">
@@ -74,6 +73,7 @@ $usuarios = $usuarioModel->obtenerTodos();
         </div>
       </div>
     </div>
+</main>
 
     <!-- Tabla de usuarios -->
     <table class="table table-bordered table-striped align-middle">
@@ -98,7 +98,7 @@ $usuarios = $usuarioModel->obtenerTodos();
                 <td><?= htmlspecialchars($u['telefono']) ?></td>
                 <td><?= $u['activo'] ? 'Sí' : 'No' ?></td>
                 <td>
-                    <!-- Botón Editar -->
+                    
                     <form action="../controllers/usuariosController.php" method="POST" class="d-inline">
                         <input type="hidden" name="accion" value="editar" />
                         <input type="hidden" name="id_usuario" value="<?= $u['id_usuario'] ?>" />
@@ -112,7 +112,7 @@ $usuarios = $usuarioModel->obtenerTodos();
                         <button class="btn btn-warning btn-sm">Editar</button>
                     </form>
 
-                    <!-- Botón Eliminar -->
+                    
                     <a href="../controllers/usuariosController.php?eliminar=<?= $u['id_usuario'] ?>" 
                        class="btn btn-danger btn-sm" 
                        onclick="return confirm('¿Eliminar usuario?')">Eliminar</a>
@@ -123,5 +123,6 @@ $usuarios = $usuarioModel->obtenerTodos();
     </table>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <?php include 'partials/footer.php'; ?>
 </body>
 </html>

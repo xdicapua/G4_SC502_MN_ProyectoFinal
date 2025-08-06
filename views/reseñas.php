@@ -5,14 +5,11 @@
     <title>TRAVEX</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body>
-    <section>
-        <ul class="nav nav-tabs py-2">
-            <li class="nav-item">
-                <a class="nav-link" href="/reseñas/listado2">Reseñas Todas</a>
-            </li>
-        </ul>
+<body class="d-flex flex-column min-vh-100">
 
+        <?php include 'partials/header.php'; ?>
+
+        <main class="flex-grow-1">
         <div class="container mt-3">
             <div class="row">
                 <!-- Primer Usuario -->
@@ -81,6 +78,8 @@
 
             </div>
         </div>
-    </section>
+        </main>
+
+    <?php include 'partials/footer.php'; ?>
 </body>
 </html>

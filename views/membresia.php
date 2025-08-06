@@ -5,12 +5,11 @@
     <title>TRAVEX</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-    <header>
-        <!-- Aquí puedes poner tu barra de navegación u otro encabezado -->
-    </header>
+    <?php include 'partials/header.php'; ?>
 
+    <main class="flex-grow-1">
     <div class="container mt-5">
         <h2 class="text-center mb-5">✨ ¡Adquiere el plan que más te guste! ✨</h2>
         <div class="row">
@@ -59,7 +58,6 @@
         </div>
     </div>
 
-    <!-- Modal -->
     <div class="modal fade" id="mensajeModal" tabindex="-1" aria-labelledby="mensajeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content p-3">
@@ -77,8 +75,8 @@
             </div>
         </div>
     </div>
+    </main>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function adquirirMembresia(plan) {
@@ -94,9 +92,7 @@
         }
     </script>
 
-    <footer>
-        <!-- Aquí puedes colocar el pie de página si lo deseas -->
-    </footer>
+    <?php include 'partials/footer.php'; ?>
 
 </body>
 </html>

@@ -6,13 +6,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-    <!-- Header (puedes sustituir por uno fijo si deseas) -->
-    <header class="bg-primary text-white text-center py-3">
-        <h1>TRAVEX</h1>
-    </header>
+    <?php include 'partials/header.php'; ?>
 
+    <main class="flex-grow-1">
     <div class="container mt-4">
         <div class="card shadow p-4 bg-primary-subtle">
             <div class="row">
@@ -77,11 +75,10 @@
             </div>
         </div>
     </div>
+    </main>
 
     <!-- Footer simple -->
-    <footer class="text-center mt-4 mb-2 text-muted">
-        &copy; 2025 TRAVEX - Todos los derechos reservados
-    </footer>
+   <?php include 'partials/footer.php'; ?>
 
 </body>
 </html>
