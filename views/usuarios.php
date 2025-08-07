@@ -17,7 +17,7 @@ $usuarios = $usuarioModel->obtenerTodos();
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-    <h2>Usuarios</h2>
+    <?php include 'partials/header.php'; ?>
 
     <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalAgregarUsuario">
         Agregar Usuario
